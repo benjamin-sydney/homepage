@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Media Portal</title>
+    <style>
+        :root {
+            --jellyfin: #00a4dc;
+            --overseerr: #f18701;
+            --ios-green: #34c759;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .glass-card {
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            width: 85%;
+            max-width: 360px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 18px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            border-radius: 14px;
+            transition: transform 0.2s, filter 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+        }
+
+        .btn-jellyfin { background: var(--jellyfin); }
+        .btn-overseerr { background: var(--overseerr); }
+
+        .btn:active { transform: scale(0.98); }
+
+        /* --- High Visibility Reminder --- */
+        .reminder-box {
+            margin-top: 2.5rem;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.07); /* Light gray for contrast */
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* iOS Style Green Toggle */
+        .ios-toggle {
+            width: 52px;
+            height: 31px;
+            background: var(--ios-green);
+            border-radius: 100px;
+            position: relative;
+            box-shadow: inset 0 0 2px rgba(0,0,0,0.1);
+        }
+
+        .ios-toggle::after {
+            content: "";
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            width: 27px;
+            height: 27px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+
+        .footer-text {
+            font-size: 1rem; /* Slightly larger for readability */
+            color: #ffffff; /* Pure white for maximum contrast */
+            line-height: 1.4;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .bold-on {
+            color: var(--ios-green);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        <h1>Welcome</h1>
+
+        <div class="btn-group">
+            <a href="http://tower:8096" class="btn btn-jellyfin">Watch</a>
+            <a href="http://tower:5055" class="btn btn-overseerr">Request</a>
+        </div>
+
+        <div class="reminder-box">
+            <div class="ios-toggle"></div>
+            <p class="footer-text">
+                Ensure Tailscale is switched <span class="bold-on">ON</span> to connect.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
